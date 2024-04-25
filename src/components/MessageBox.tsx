@@ -33,10 +33,10 @@ export default function MessageBox({ message }: { message: Message }) {
 				</Avatar>
 			)}
 			<div
-				className={`flex flex-col whitespace-pre-wrap bg-slate-100 dark:bg-zinc-700 py-2 px-4 w-fit max-w-80 rounded-xl shadow-lg ${
+				className={`flex flex-col whitespace-pre-wrap   py-2 px-4 w-fit max-w-80 rounded-xl shadow-lg ${
 					message.role === "user"
-						? "dark:text-black text-white bg-blue-600 dark:bg-blue-50"
-						: ""
+						? "dark:text-black text-white bg-blue-600 dark:bg-white"
+						: "bg-slate-100 dark:bg-zinc-700"
 				}`}>
 				{message.content}
 				<span className="text-[10px] tracking-wider text-right">
