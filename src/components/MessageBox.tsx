@@ -1,6 +1,5 @@
 import { getHoursAndMinutesFromMessage } from "@/lib/utils";
 import { Message } from "ai";
-import { Bot, CircleUserRound } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 export default function MessageBox({ message }: { message: Message }) {
@@ -16,17 +15,12 @@ export default function MessageBox({ message }: { message: Message }) {
 				message.role === "user" ? "flex-row-reverse" : ""
 			}`}>
 			{message.role === "user" ? (
-				<Avatar>
-					<AvatarImage
-						src={"/circle-user-round.svg"}
-						alt="user"
-						className="w-8 dark:invert"
-					/>
+				<Avatar className="w-7 h-7 mt-1 hover:cursor-pointer">
+					<AvatarImage src="/google-account.jpg" />
 					<AvatarFallback>User</AvatarFallback>
-					{/* <CircleUserRound size={30} className="mt-1" /> */}
 				</Avatar>
 			) : (
-				<Avatar>
+				<Avatar className="hover:cursor-pointer">
 					<AvatarImage src={"/bot.svg"} alt="bot" className="w-8 dark:invert" />
 					<AvatarFallback>Bot</AvatarFallback>
 					{/* <Bot size={30} className="mt-1" /> */}

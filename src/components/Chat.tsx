@@ -1,6 +1,6 @@
 "use client";
 
-import { useChat } from "ai/react";
+import { Message, useChat } from "ai/react";
 import { useEffect, useRef } from "react";
 import MessageBox from "./MessageBox";
 import SendButton from "./SendButton";
@@ -22,7 +22,8 @@ export default function Chat() {
 		<div className="flex flex-col w-full px-3 py-1 mx-auto stretch max-h-[93dvh] bg-slate-200 dark:bg-zinc-800">
 			<div
 				ref={boxRef}
-				className="flex h-[90dvh] flex-9 max-h-[90dvh] px-2 flex-col gap-4 overflow-y-auto pb-5 mt-2">
+				id="chat"
+				className="flex h-[90dvh] flex-9 max-h-[90dvh] px-2 flex-col gap-2 overflow-y-auto pb-5 mt-2">
 				{messages.map((m) => (
 					<MessageBox message={m} key={m.id} />
 				))}

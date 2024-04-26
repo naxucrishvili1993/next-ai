@@ -24,3 +24,9 @@ export function getHoursAndMinutesFromMessage(date: Date): string {
 
 	return timeStr;
 }
+
+export function clearChat() {
+	if (!!document && !!document.getElementById("chat")) {
+		document.getElementById("chat").innerHTML = "";
+	}
+}

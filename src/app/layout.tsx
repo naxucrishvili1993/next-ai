@@ -22,8 +22,9 @@ export default function RootLayout({
 		<html lang="en" suppressHydrationWarning>
 			<body className={`min-h-[100dvh] bg-blue-100 dark:bg-zinc-800 relative`}>
 				<Providers>
-					<ThemeSwitch />
+					<ThemeSwitch>
 					{children}
+					</ThemeSwitch>
 				</Providers>
 			</body>
 		</html>

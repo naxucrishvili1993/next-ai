@@ -1,15 +1,18 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
-import { FiMoon, FiSun } from "react-icons/fi";
-import LightButton from "./LightButton";
-import DarkButton from "./DarkButton";
+import { Avatar, AvatarImage } from "./ui/avatar";
+import { AvatarFallback } from "@radix-ui/react-avatar";
+import Dropdown from "./Dropdown";
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	const [mounted, setMounted] = useState(false);
-	const { setTheme, resolvedTheme } = useTheme();
 
 	useEffect(() => setMounted(true), []);
 
@@ -22,13 +25,15 @@ export default function ThemeSwitch() {
 	}
 
 	return (
-		<div className="px-4 flex items-center justify-end w-screen shadow-2xl h-12 bg-white/40 dark:bg-gray-900">
-			{resolvedTheme === "dark" && (
-				<LightButton onClick={() => setTheme("light")} />
-			)}
-			{resolvedTheme === "light" && (
-				<DarkButton onClick={() => setTheme("dark")} />
-			)}
-		</div>
+		<>
+			<div className="px-4 flex items-center justify-between w-screen shadow-2xl h-12 bg-white/45 dark:bg-gray-900">
+				<Avatar className="w-7 h-7">
+					<AvatarImage src="/google-account.jpg" />
+					<AvatarFallback>User</AvatarFallback>
+				</Avatar>
+				<Dropdown />
+			</div>
+			{children}
+		</>
 	);
 }
